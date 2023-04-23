@@ -29,6 +29,9 @@ full list see [outputs-of-the-build-script](https://doc.rust-lang.org/cargo/refe
 
 notes: "`cargo:KEY=VALUE` — Metadata, used by links scripts." This metadata is passed to the build scripts of dependent packages. details refer to [the-links-manifest-key](https://doc.rust-lang.org/cargo/reference/build-scripts.html#the-links-manifest-key). for example, the [sdl2-sys crate](https://github.com/Rust-SDL2/rust-sdl2) add  `DEP_SDL2_INCLUDE` in `sdl2-sys` through `println!("cargo:include={}", include_paths.join(":"));`
 
+## generate Rust FFI bindings to C 
+
+in this sample, we use [bindgen](https://crates.io/crates/bindgen) to got it. then use `include!(concat!(env!("OUT_DIR"), "/clibsample_bindings.rs"));` statement merge them into our rust project.
 
 ## notes for cmake-rs
 
